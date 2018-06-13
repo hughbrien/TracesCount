@@ -4,7 +4,7 @@
 Script Fetch Traces in the past minute which contain an Error.
 
 * Requred Libraries : urllib3, json, sys. Ensure you pip install urlib3 json sys
-* An Instana Agent installed on the same machine where the script is executing.
+* __An Instana Agent installed on the same machine where the script is executing__.
 
 * First Parameter is the Query.
 * Script Fetch Traces in the past minute which contain an Error.
