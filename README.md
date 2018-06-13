@@ -1,16 +1,17 @@
 
 # TracesCount
+
 Script Fetch Traces in the past minute which contain an Error.
 
- l Requred Libraries : urllib3, json, sys. Ensure you pip install urlib3 json sys
- l An Instana Agent installed on the same machine where the script is executing.
+* Requred Libraries : urllib3, json, sys. Ensure you pip install urlib3 json sys
+* An Instana Agent installed on the same machine where the script is executing.
 
-  * First Parameter is the Query.
-  * Script Fetch Traces in the past minute which contain an Error.
-  * Count all of the Errors within the Trace
-  * If Error is Greater Than ZERO Send Customer Event
-  * For example:
-  * querytraces.py trace.erroneous:true
+* First Parameter is the Query.
+* Script Fetch Traces in the past minute which contain an Error.
+* Count all of the Errors within the Trace
+* If Error is Greater Than ZERO Send Customer Event
+* For example:
+* querytraces.py trace.erroneous:true
 
 # Need to update these items
 * traceQuery = "trace.erroneous:true"
