@@ -15,9 +15,6 @@ import sys
 #
 
 traceQuery = "trace.erroneous:true"
-base = "https://joe-joe.instana.io"
-query = base + "/api/traces?windowsize=60000&sortBy=total_error_count&sortMode=asc&" + traceQuery
-token = "XXXXXXXXXXXXXXXXX"
 
 total = len(sys.argv)
 cmdargs = str(sys.argv)
@@ -36,6 +33,9 @@ elif len(arguments) <=1:
 
 
 urllib3.disable_warnings()
+base = "https://engineering-nielsen.instana.io"
+query = base + "/api/traces?windowsize=60000&sortBy=total_error_count&sortMode=asc&" + traceQuery
+token = "EaR9ItnQ-bVrUHGh"
 print(query)
 
 http = urllib3.PoolManager()
@@ -67,7 +67,6 @@ if status == 200:
 	print("The Trace Count is " + traceCountStr)
 	print("Errors: " + str(ErrorCount))
 	print("TotalErrorCount:  " + str(TotalErrorCount))
-	print("Hello World")
 	apirequest = http.request('POST', query, headers={'Authorization':'apiToken ' + token})
 	print("# # # # # # #   Sending Custom Event # # # # # # # ")
 	import json
@@ -78,12 +77,15 @@ if status == 200:
 			"severity": "5",
 		})
 
-	http = urllib3.PoolManager()
-	response = http.request('POST', 'http://localhost:42699/com.instana.plugin.generic.event',
-					 headers={'Content-Type': 'application/json'},
-					 body=encoded_body)
-	results = response.read()
-	print(response)
+
+	if TotalErrorCount > 0 and ErrorCount > 0:
+		http = urllib3.PoolManager()
+		response = http.request('POST', 'http://localhost:42699/com.instana.plugin.generic.event',
+						 headers={'Content-Type': 'application/json'},
+						 body=encoded_body)
+		results = response.read()
+		print(response)
+		sys.exit(0)
 
 if status == 404:
 	print ("No Results have returned")
