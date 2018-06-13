@@ -13,14 +13,11 @@ import sys
 #  For example:
 #  querytraces.py trace.erroneous:true
 #
-#
-#
 
 traceQuery = "trace.erroneous:true"
 base = "https://joe-joe.instana.io"
 query = base + "/api/traces?windowsize=60000&sortBy=total_error_count&sortMode=asc&" + traceQuery
 token = "XXXXXXXXXXXXXXXXX"
-
 
 total = len(sys.argv)
 cmdargs = str(sys.argv)
@@ -39,8 +36,6 @@ elif len(arguments) <=1:
 
 
 urllib3.disable_warnings()
-
-
 print(query)
 
 http = urllib3.PoolManager()
