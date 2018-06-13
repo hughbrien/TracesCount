@@ -16,21 +16,7 @@ import sys
 #
 #
 
-
-def printTrace(traceentry):
-	id = traceentry.get('traceId')
-	spanId = traceentry.get('spanId')
-	name = traceentry.get('name')
-	kind = traceentry.get('kind')
-	start = traceentry.get('start')
-	duration = traceentry.get('duration')
-	batchSize = traceentry.get('batchSize')
-	errorCount = traceentry.get('errorCount')
-	totalErrorCount = traceentry.get('totalErrorCount')
-	#print(id, " ", errorCount, " ", totalErrorCount, " ",  name, " ",  kind, " ", start, " ", duration, " ", batchSize)
-
 traceQuery = "trace.erroneous:true"
-
 
 total = len(sys.argv)
 cmdargs = str(sys.argv)
@@ -39,8 +25,6 @@ print ("Args list: %s " % cmdargs)
 # Pharsing args one by one
 print ("Script name: %s" % str(sys.argv[0]))
 print ("First argument is the Query: %s" % str(sys.argv[1]))
-
-
 
 arguments = sys.argv
 if len(arguments) > 1:
