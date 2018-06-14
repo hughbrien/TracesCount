@@ -33,9 +33,9 @@ elif len(arguments) <=1:
 
 
 urllib3.disable_warnings()
-base = "https://engineering-nielsen.instana.io"
+base = "https://.instana.io"
 query = base + "/api/traces?windowsize=60000&sortBy=total_error_count&sortMode=asc&" + traceQuery
-token = "EaR9ItnQ-bVrUHGh"
+token = "XXXXXXXXXXXXXX"
 print(query)
 
 http = urllib3.PoolManager()
